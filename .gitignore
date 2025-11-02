@@ -1,28 +1,60 @@
-# Ignore everything in public
-backend/app/public/*
+# --------------------
+# OS & Editor Junk
+# --------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
 
-# ✅ Allow wp-content only
-!backend/app/public/wp-content/
+# --------------------
+# Node / Next.js
+# --------------------
+frontend/node_modules/
+frontend/.next/
+frontend/.turbo/
+frontend/.env*
+frontend/out/
+frontend/dist/
 
-# ✅ Inside wp-content allow only themes & plugins
-backend/app/public/wp-content/*
-!backend/app/public/wp-content/themes/
-!backend/app/public/wp-content/themes/**
-!backend/app/public/wp-content/plugins/
-!backend/app/public/wp-content/plugins/**
+# --------------------
+# LocalWP Runtime - DON'T COMMIT
+# --------------------
+backend/app/
+backend/conf/
+backend/logs/
 
-# ✅ STILL ignore uploads & cache
+# --------------------
+# WordPress Core Ignore
+# --------------------
+backend/app/public/wp-admin/
+backend/app/public/wp-includes/
 backend/app/public/wp-content/uploads/
 backend/app/public/wp-content/cache/
 backend/app/public/wp-content/upgrade/
 backend/app/public/wp-content/ai1wm-backups/
 
-# Ignore config and secrets
-backend/app/public/wp-config*.php
+# Ignore all default WP themes
+backend/app/public/wp-content/themes/twenty*/
+
+# ✅ Track only your custom theme
+!backend/app/public/wp-content/themes/avr-theme/
+!backend/app/public/wp-content/themes/avr-theme/**
+
+# ✅ Track only custom plugins (if needed)
+# !backend/app/public/wp-content/plugins/your-plugin-name/
+
+# --------------------
+# Config & Secrets
+# --------------------
+wp-config.php
+wp-config-local.php
 *.sql
 *.sql.gz
 
-# Global ignores
-node_modules/
+# --------------------
+# System Files
+# --------------------
+.idea/
+.vscode/
 .env
 *.log
