@@ -1,31 +1,63 @@
-# --------------------
-# OS & Editor Junk
-# --------------------
+# --------------------------------------------------------
+# OS & EDITOR JUNK
+# --------------------------------------------------------
 .DS_Store
 Thumbs.db
 *.swp
 *.swo
+.idea/
+.vscode/
+*.log
 
-# --------------------
-# Node / Next.js
-# --------------------
+# --------------------------------------------------------
+# ENV & SECRETS
+# --------------------------------------------------------
+.env
+.env.*
+*.sql
+*.sql.gz
+wp-config.php
+wp-config-local.php
+
+# --------------------------------------------------------
+# FRONTEND (NEXT.JS)
+# --------------------------------------------------------
 frontend/node_modules/
 frontend/.next/
 frontend/.turbo/
-frontend/.env*
 frontend/out/
 frontend/dist/
+frontend/.env*
+frontend/npm-debug.log
+frontend/yarn-error.log
 
-# --------------------
-# LocalWP Runtime - DON'T COMMIT
-# --------------------
-backend/app/
-backend/conf/
-backend/logs/
+# --------------------------------------------------------
+# BACKEND (WORDPRESS)
+# --------------------------------------------------------
 
-# --------------------
-# WordPress Core Ignore
-# --------------------
+# Ignore everything inside backend/app
+backend/app/**
+
+# ✅ Allow public folder
+!backend/app/public/
+
+# ✅ Allow wp-content
+!backend/app/public/wp-content/
+
+# ✅ Allow themes folder
+!backend/app/public/wp-content/themes/
+
+# ✅ Allow your custom theme
+!backend/app/public/wp-content/themes/avr-theme/
+!backend/app/public/wp-content/themes/avr-theme/**
+
+# ✅ (Optional) Allow custom plugins
+# !backend/app/public/wp-content/plugins/your-plugin-name/
+# !backend/app/public/wp-content/plugins/your-plugin-name/**
+
+# --------------------------------------------------------
+# WORDPRESS CORE (IGNORE)
+# --------------------------------------------------------
 backend/app/public/wp-admin/
 backend/app/public/wp-includes/
 backend/app/public/wp-content/uploads/
@@ -33,28 +65,15 @@ backend/app/public/wp-content/cache/
 backend/app/public/wp-content/upgrade/
 backend/app/public/wp-content/ai1wm-backups/
 
-# Ignore all default WP themes
-backend/app/public/wp-content/themes/twenty*/
+# --------------------------------------------------------
+# LOCALWP / SYSTEM RUNTIME FILES
+# --------------------------------------------------------
+backend/conf/
+backend/logs/
 
-# ✅ Track only your custom theme
-!backend/app/public/wp-content/themes/avr-theme/
-!backend/app/public/wp-content/themes/avr-theme/**
-
-# ✅ Track only custom plugins (if needed)
-# !backend/app/public/wp-content/plugins/your-plugin-name/
-
-# --------------------
-# Config & Secrets
-# --------------------
-wp-config.php
-wp-config-local.php
-*.sql
-*.sql.gz
-
-# --------------------
-# System Files
-# --------------------
-.idea/
-.vscode/
-.env
-*.log
+# --------------------------------------------------------
+# MISC
+# --------------------------------------------------------
+*.zip
+*.tar
+*.bak
